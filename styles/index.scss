@@ -1,0 +1,18 @@
+@import './base/reset';
+@import './utils/variables';
+@import './utils/functions';
+@import './utils/mixins';
+@import './utils/vendors';
+@import './utils/responsive';
+
+@import './shared/titles';
+@import './shared/project';
+@import './shared/description';
+@import './shared/links';
+
+@import './base/base';
+@import './components/map';
+@import './components/Slider';
+
+@import './pages/navigation';
+

@@ -1,0 +1,18 @@
+#map {
+    @extend %cover;
+    height: 100vh;
+}
+.map__wrapper{
+    @extend %center;
+    &:before,
+    &:after {
+        background: radial-gradient(rgba(black, 0), black);
+        content: '';
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        pointer-events: none;
+        left: 0;
+        z-index: 1;
+    }
+}

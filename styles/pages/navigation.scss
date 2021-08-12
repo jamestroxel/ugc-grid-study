@@ -1,0 +1,139 @@
+.navigation {
+    @extend %cover;
+    @extend %center;
+    position: fixed;
+    pointer-events: none;
+    z-index: z('navigation');
+   }
+   .navigation__link{
+       font-size: 0;
+       position: absolute;
+       left:4rem;
+       pointer-events: auto;
+       top: 4rem;
+       transition: opacity 0.4s ease;
+       width: 12.8rem;
+       height: 2rem;
+   
+       &:hover {
+           opacity: 0.5;
+       }
+       @include media('<=phone') {
+           left: 5rem;
+           top: 5rem;
+           width: 27.9rem;
+           height: 4.3rem;
+       }
+   }
+   .navigation__list__item {
+       position: absolute;
+       pointer-events: auto;
+
+       &:first-child {
+        left: 4rem;
+        top: 4rem;
+       }
+
+       &:nth-child(2) {
+        right: 4rem;
+        top: 4rem;
+       }
+       
+       &:nth-child(3) {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: stretch;
+        left: 4rem;
+        bottom: 4rem;
+        width: 25%;
+       }
+
+       &:nth-child(4) {
+        right: 4rem;
+        bottom: 4rem;
+       }
+    }
+   
+   .navigation__list__link {
+        @extend %title-20;
+        display: block;
+        line-height: 1;
+        -o-transition: color 0.25s linear; /* opera */
+        -ms-transition: color 0.25s linear; /* IE 10 */
+        -moz-transition: color 0.25s linear; /* Firefox */
+        -webkit-transition: color 0.25s linear; /*safari and chrome */
+        @include media('<=phone') {
+            font-size: 2.5rem;
+         }
+    }
+    .navigation__list__link:hover {
+       color: red;
+       transition: color 0.25s linear; /* vendorless fallback */
+       -o-transition: color 0.25s linear; /* opera */
+       -ms-transition: color 0.25s linear; /* IE 10 */
+       -moz-transition: color 0.25s linear; /* Firefox */
+       -webkit-transition: color 0.25s linear; /*safari and chrome */
+    }
+    .navigation__spinner__wrapper {
+        // position: absolute;
+        // top: 0rem;
+        // left: 0rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: visible;
+    }
+    
+    .navigation__spinner {
+        position: absolute;
+        animation: animate 15s linear infinite;
+        
+       
+        @keyframes animate {
+            0%{
+                transform: rotate(360deg);
+                
+            }
+            100%{
+                transform: rotate(0deg);
+            }
+            
+        }
+        span {
+            display: inline-block;
+            position:absolute;
+            top: -15rem;
+            transform-origin: 0 15rem;
+            
+        }
+    }
+    .monogram__wrapper {
+        width: 100%;
+        display:flex;
+        justify-content: flex-end;
+        position:absolute;
+        // top:0;
+        right: 0;
+        margin: 0rem 0rem;
+        overflow: visible;
+    }
+    .monogram {
+        object-fit:fill;
+        // height: 3rem;
+        // margin: 3rem;
+        overflow: visible;
+        // width: 12rem;
+        height: 4rem;
+        margin: 0rem 0rem 0rem 0rem;
+        -webkit-transition: opacity 1s linear;
+        -moz-transition: opacity 1s linear;
+        -o-transition: opacity 1s linear;
+        transition: opacity 1s linear;
+    }
+    .cls-1:hover {
+        opacity:1;
+        -webkit-transition: opacity .5s linear;
+        -moz-transition: opacity .5s linear;
+        -o-transition: opacity .5s linear;
+        transition: opacity .5s linear;
+    }

@@ -1,0 +1,16 @@
+.ui__wrapper{
+    @extend %cover;
+    position: fixed;
+    display:flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 1;
+}
+.slider__wrapper{
+    // @extend %cover;
+    width: 25%;
+    height: auto;
+    margin: auto 4rem;
+   
+}
