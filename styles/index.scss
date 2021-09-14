@@ -9,10 +9,12 @@
 @import './shared/project';
 @import './shared/description';
 @import './shared/links';
+@import './shared/footer';
 
 @import './base/base';
+@import './base/fonts';
 @import './components/map';
-@import './components/Slider';
+@import './components/ui';
 
 @import './pages/navigation';
 

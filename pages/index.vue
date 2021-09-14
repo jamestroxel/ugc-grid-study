@@ -1,6 +1,9 @@
 <template>
   <div>
     <Map />
+    <div class="footer__wrapper">
+      <div class="footer__content" />
+    </div>
   </div>
 </template>
 
@@ -34,5 +37,25 @@ export default {
 
 <style lang="scss">
   @import './styles/index.scss';
-
+  .v-application{
+    background:transparent !important;
+    font-family: 'Gotham Book';
+  }
+  // .v-application--wrap{
+  //   height: none !important;
+  // }
+  .mapboxgl-ctrl.mapboxgl-ctrl-attrib{
+    background-color: transparent !important;
+  }
+  .mapboxgl-ctrl-attrib a{
+    color:white !important;
+  }
+  // .v-input{
+  //   font-size: 1.6rem !important;
+  //   line-height: 1.5 !important;
+  // }
+  // .v-label{
+  //   font-size: 1.6rem !important;
+  //   line-height: 1.5 !important;
+  // }
 </style>

@@ -58,7 +58,7 @@
     line-height: .85;
 }
 .project__title__view {
-    @extend %title-20;
+    @extend %title-1;
     position: fixed;
     // width: 100%;
     line-height: 2;
@@ -72,7 +72,7 @@
      }
  }
  .project__title__view__label {
-    @extend %title-20;
+    @extend %title-1;
     margin: auto 60rem;
     position: fixed;
     bottom: 3rem;
@@ -110,7 +110,7 @@
     width: 100%;
 }
 .project__launch__front {
-    @extend %title-20;
+    @extend %title-1;
         background-color: white;
         border-color: black;
         border-style: solid;
@@ -123,7 +123,7 @@
         z-index: 1;
 }
 .project__launch__back{
-    @extend %title-20;
+    @extend %title-1;
     background-color: white;
     border-color: black;
     border-style: solid;
@@ -147,7 +147,7 @@
     }
 };
 .project__feature__text {
-    @extend %title-20;
+    @extend %title-1;
     // position: absolute;
     margin: 4rem 0rem 0rem 4rem;
     width: 100%;
@@ -178,7 +178,7 @@
     }
 }
 .project__heading {
-    @extend %title-20;
+    @extend %title-1;
    font-weight: bold;
     margin: 2.5rem 60rem 2.5rem 60rem ;
 
@@ -194,7 +194,7 @@
     }
 }
 .project__text {
-    @extend %title-20;
+    @extend %title-1;
     line-height: 2;
    
     margin: 0rem 60rem 2.5rem 60rem ;
@@ -216,14 +216,14 @@
     }
 }
 .project__feature__text__title {
-    @extend %title-20;
+    @extend %title-1;
     margin: 4rem auto;
     // position: absolute; 
     // left: 0rem;
     // width: 100%;
 }
 .project__feature__tool {
-    @extend %title-20;
+    @extend %title-1;
     background: black;
     color: white;
     padding: .4rem .4rem .3rem .4rem;

@@ -1,9 +1,21 @@
 .navigation {
-    @extend %cover;
     @extend %center;
-    position: fixed;
     pointer-events: none;
+    position: fixed;
+    width: 100%;
+    height: 12rem;
     z-index: z('navigation');
+   }
+   .navigation__list{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    border-bottom: 1px;
+    border-style: solid;
+    border-color: white;
+    margin:4rem;
+    width: 100%;
+    height: 100%;
    }
    .navigation__link{
        font-size: 0;
@@ -26,7 +38,8 @@
        }
    }
    .navigation__list__item {
-       position: absolute;
+    //    position: absolute;
+    margin: 4rem 4rem 0rem 0rem;
        pointer-events: auto;
 
        &:first-child {
@@ -38,26 +51,15 @@
         right: 4rem;
         top: 4rem;
        }
-       
-       &:nth-child(3) {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: stretch;
-        left: 4rem;
-        bottom: 4rem;
-        width: 25%;
-       }
-
-       &:nth-child(4) {
-        right: 4rem;
-        bottom: 4rem;
-       }
     }
    
    .navigation__list__link {
-        @extend %title-20;
-        display: block;
+        @extend %title-1;
+        display: flex;
+        flex-flow: row nowrap;
         line-height: 1;
+        height: 4rem;
+        width: 100%;
         -o-transition: color 0.25s linear; /* opera */
         -ms-transition: color 0.25s linear; /* IE 10 */
         -moz-transition: color 0.25s linear; /* Firefox */
@@ -136,4 +138,18 @@
         -moz-transition: opacity .5s linear;
         -o-transition: opacity .5s linear;
         transition: opacity .5s linear;
+    }
+    .navigation__list__link__icon {
+        display: block;
+    }
+    .navigation__title{
+        border-left: 1px;
+        border-style: solid;
+        border-color: #C0D72D;
+        font-family: $font-gotham-bold;
+        font-size: 2.5rem;
+        line-height: 0.9;
+        margin: 0rem 0rem 0rem 1rem;
+        padding-left: 0.8rem;
+        text-transform: uppercase;
     }
