@@ -41,9 +41,6 @@ export default {
     background:transparent !important;
     font-family: 'Gotham Book';
   }
-  // .v-application--wrap{
-  //   height: none !important;
-  // }
   .mapboxgl-ctrl.mapboxgl-ctrl-attrib{
     background-color: transparent !important;
   }
