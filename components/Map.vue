@@ -1,11 +1,8 @@
 <template>
   <div>
-    <div class="map__wrapper">
-      <div id="map" class="dark" />
-    </div>
-    <div class="ui">
-      <Ui :map="map" />
-    </div>
+    <div class="map__wrapper" />
+    <Ui :map="map" />
+    <div id="map" class="dark" />
   </div>
 </template>
 

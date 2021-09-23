@@ -1,9 +1,18 @@
 #map {
-    @extend %cover;
-    height: 100vh;
+    // @extend %cover;
+    // height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
 }
 .map__wrapper{
     @extend %center;
+    pointer-events: none;
     &:before,
     &:after {
         background: radial-gradient(rgba(black, 0), black);
@@ -11,7 +20,7 @@
         height: 100%;
         width: 100%;
         position: fixed;
-        pointer-events: none;
+        top:0;
         left: 0;
         z-index: 1;
     }
