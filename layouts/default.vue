@@ -11,15 +11,17 @@
           </nuxt-link>
         </li>
         <ul class="navigation__links__wrapper">
-          <li class="navigation__list__item">
+          <li class="navigation__list__item" @mouseover="linkOver" @mouseout="linkOut">
             <nuxt-link to="/" class="navigation__list__link">
               About
             </nuxt-link>
+            <div class="navigation__list__link__rule" />
           </li>
-          <li class="navigation__list__item">
+          <li class="navigation__list__item" @mouseover="linkOver" @mouseout="linkOut">
             <nuxt-link to="/" class="navigation__list__link">
               Resources
             </nuxt-link>
+            <div class="navigation__list__link__rule" />
           </li>
         </ul>
       </ul>
@@ -27,3 +29,29 @@
     <nuxt />
   </div>
 </template>
+<script>
+import { gsap, Back } from 'gsap'
+export default {
+  mounted () {
+    this.tl = gsap.timeline({ paused: true })
+  },
+  methods: {
+    linkOver () {
+      const tl = gsap.timeline()
+      tl.to('.navigation__list__link__rule', {
+        width: '100%',
+        duration: 0.3,
+        ease: Back.easeOut.config(4)
+      })
+    },
+    linkOut () {
+      const tl = gsap.timeline()
+      tl.to('.navigation__list__link__rule', {
+        width: '0',
+        duration: 0.3,
+        ease: Back.easeOut.config(4)
+      })
+    }
+  }
+}
+</script>

@@ -97,3 +97,12 @@
         padding-left: 0.8rem;
         text-transform: uppercase;
     }
+    .navigation__list__link__rule{
+        height: 4rem;
+        border-bottom: 4px;
+        border-style: solid;
+        border-color: $color-ugc-green;
+        margin-left: 4rem;
+        text-align: right;
+    
+    }

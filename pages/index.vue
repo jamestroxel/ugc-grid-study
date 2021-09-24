@@ -50,10 +50,10 @@ export default {
   .mapboxgl-ctrl-attrib a{
     color:white !important;
   }
-  // .v-input{
-  //   font-size: 1.6rem !important;
-  //   line-height: 1.5 !important;
-  // }
+  .v-input{
+    font-size: 14px !important;
+    line-height: 2 !important;
+  }
   // .v-label{
   //   font-size: 1.6rem !important;
   //   line-height: 1.5 !important;

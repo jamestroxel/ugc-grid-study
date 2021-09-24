@@ -2,14 +2,34 @@
   <div>
     <v-app>
       <div class="ui__left">
-        <p class="ui__vizBox__title">
+        <p class="ui__title__no-rule">
+          Congressional District: <span id="features" />
+        </p>
+        <p class="ui__title__no-rule">
+          Congressional District: <span id="features" />
+        </p>
+        <p class="ui__title__no-rule">
           Congressional District: <span id="features" />
         </p>
         <div class="ui__element">
           <v-card-text>
-            <p class="ui__title">
-              Adoption
-            </p>
+            <v-tooltip left>
+              <template #activator="{ on, attrs }">
+                <p
+                  v-bind="attrs"
+                  class="ui__title"
+                  v-on="on"
+                >
+                  Adoption<v-icon
+                    dark
+                    right
+                  >
+                    mdi-help-circle
+                  </v-icon>
+                </p>
+              </template>
+              <span style="width: 200px;">Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-methods.</span>
+            </v-tooltip>
             <v-slider
               v-model="electrification"
               :color="ugcGreen"
@@ -21,29 +41,105 @@
             />
           </v-card-text>
           <v-card-text>
-            <p class="ui__title">
-              Scenarios
-            </p>
-            <v-switch
-              v-model="switch1"
-              inset
+            <v-tooltip left>
+              <template #activator="{ on, attrs }">
+                <p
+                  v-bind="attrs"
+                  class="ui__title"
+                  v-on="on"
+                >
+                  Filters<v-icon
+                    dark
+                    right
+                  >
+                    mdi-help-circle
+                  </v-icon>
+                </p>
+              </template>
+              <span style="width: 200px;">Toggle different filters to see how they effect the metrics.</span>
+            </v-tooltip>
+            <div
+              style="display:flex;"
+            >
+              <v-switch
+                v-model="switch1"
+                inset
+                :color="ugcGreen"
+                label="Energy Efficiency"
+                @click="toggleEfficiency"
+              />
+              <v-tooltip left>
+                <template #activator="{ on, attrs }">
+                  <v-icon
+                    v-bind="attrs"
+                    dark
+                    right
+                    v-on="on"
+                  >
+                    mdi-help-circle
+                  </v-icon>
+                </template>
+                <span style="width: 200px;">Simple energy efficnecy upgrades like sealing cracks and gaps in the walls, adding insulation to the roofs, installing better lights like LEDs and installing Energy Star appliances and controlling other plug loads like computers are included alongside heat pump instilations.</span>
+              </v-tooltip>
+            </div>
+          </v-card-text>
+          <v-card-text>
+            <div
+              style="display:flex;"
+            >
+              <v-switch
+                v-model="switch2"
+                inset
+                :color="ugcGreen"
+                label="Demand Flexability"
+                @click="toggleFlex"
+              />
+              <v-tooltip left>
+                <template #activator="{ on, attrs }">
+                  <v-icon
+                    v-bind="attrs"
+                    dark
+                    right
+                    v-on="on"
+                  >
+                    mdi-help-circle
+                  </v-icon>
+                </template>
+                <span style="width: 200px;">Demand flexibility is all about shifting power demand to times when the grid is not stressed. Batteries and thermal storage technologies are included alongside heat pump instillations.</span>
+              </v-tooltip>
+            </div>
+          </v-card-text>
+        </div>
+      </div>
+      <div class="ui__right">
+        <div class="ui__element">
+          <p class="ui__title__no-rule">
+            <v-icon
+              style="color:#C0D72D;font-size:16pt;"
+              dark
+              left
+            >
+              mdi-texture-box
+            </v-icon>Zone
+          </p>
+          <v-card-text>
+            <v-select
+              :item-color="ugcGreen"
               :color="ugcGreen"
-              label="Energy Efficiency Measures"
-              @click="toggleEfficiency"
+              :items="metrics"
+              label="Zone"
+              outlined
             />
           </v-card-text>
           <v-card-text>
-            <v-switch
-              v-model="switch2"
-              inset
-              :color="ugcGreen"
-              label="Demand Flex"
-              @click="toggleFlex"
-            />
-          </v-card-text>
-          <v-card-text>
             <p class="ui__title">
-              Metrics
+              <v-icon
+                style="color:#C0D72D;font-size:16pt;"
+                dark
+                left
+              >
+                mdi-cog-outline
+              </v-icon>Metrics
             </p>
             <v-select
               :item-color="ugcGreen"
@@ -51,64 +147,59 @@
               :items="metrics"
               label="Metric"
               outlined
-            />
-          </v-card-text>
-        </div>
-      </div>
-      <div class="ui__right">
-        <p class="ui__vizBox__title">
-          Congressional District: <span id="features" />
-        </p>
-        <div class="ui__element">
-          <v-card-text>
-            <p class="ui__title">
-              Adoption
-            </p>
-            <v-slider
-              v-model="electrification"
-              :color="ugcGreen"
-              :tick-labels="ticksLabels"
-              :max="4"
-              step="1"
-              ticks="always"
-              @change="onChildClick"
+              return-object
+              @change="getLegend"
             />
           </v-card-text>
           <v-card-text>
-            <p class="ui__title">
-              Scenarios
-            </p>
-            <v-switch
-              v-model="switch1"
-              inset
-              :color="ugcGreen"
-              label="Energy Efficiency Measures"
-              @click="toggleEfficiency"
-            />
+            <div class="ui__legend">
+              <v-tooltip left>
+                <template #activator="{ on, attrs }">
+                  <p
+                    v-bind="attrs"
+                    class="ui__title"
+                    v-on="on"
+                  >
+                    Legend  <v-icon
+                      dark
+                      right
+                    >
+                      mdi-help-circle
+                    </v-icon>
+                  </p>
+                </template>
+                <span style="width: 200px;">Though the "loose" option was set to "false" in your @babel/preset-env config, it will not be used for @babel/plugin-proposal-private-property-in-object since the "loose" mode option was set to "true" for @babel/plugin-proposal-private-methods.
+                  The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled): you can silence this warning by explicitly adding
+                  ["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+                  to the "plugins" section of your Babel config.</span>
+              </v-tooltip>
+              <p class="ui__subtitle">
+                {{ legend }}
+              </p>
+              <div v-if="legend == 'Remaining Capacity (%)'" class="ui__legend__marker">
+                <div class="ui__legend__remainingCap" />
+                <div class="ui__legend__remainingCap" />
+                <div class="ui__legend__remainingCap" />
+                <div class="ui__legend__remainingCap" />
+                <div class="ui__legend__remainingCap" />
+                <div class="ui__legend__remainingCap" />
+                <div class="ui__legend__remainingCap" />
+                <div class="ui__legend__remainingCap" />
+                <div class="ui__legend__remainingCap" />
+                <div class="ui__legend__remainingCap" />
+              </div>
+              <div v-if="legend == 'Increase in Demand (MW)'" class="ui__legend__marker">
+                <div class="ui__legend__increaseMW" />
+                <div class="ui__legend__increaseMW" />
+                <div class="ui__legend__increaseMW" />
+                <div class="ui__legend__increaseMW" />
+                <div class="ui__legend__increaseMW" />
+                <div class="ui__legend__increaseMW" />
+                <div class="ui__legend__increaseMW" />
+                <div class="ui__legend__increaseMW" />
+              </div>
+            </div>
           </v-card-text>
-          <v-card-text>
-            <v-switch
-              v-model="switch2"
-              inset
-              :color="ugcGreen"
-              label="Demand Flex"
-              @click="toggleFlex"
-            />
-          </v-card-text>
-          <v-card-text>
-            <p class="ui__title">
-              Metrics
-            </p>
-            <v-select
-              :item-color="ugcGreen"
-              :color="ugcGreen"
-              :items="metrics"
-              label="Metric"
-              dense
-            />
-          </v-card-text>
-          <div class="ui__legend">
-          </div>
         </div>
       </div>
     </v-app>
@@ -137,7 +228,8 @@ export default {
     layerIds: ['shape-area', 'district'],
     metrics: ['Remaining Capacity (%)', 'Increase in Demand (MW)', 'Increase in Demand (%)', 'Summer vs. Winter Peak'],
     switch1: true,
-    switch2: true
+    switch2: true,
+    legend: ''
   }),
   mounted () {
     this.map.on('load', () => { this.map.setLayoutProperty(this.layerIds[0], 'visibility', 'visible') })
@@ -158,6 +250,9 @@ export default {
     })
   },
   methods: {
+    getLegend (e) {
+      this.legend = e
+    },
     toggleEfficiency () {
       const visibility = this.map.getLayoutProperty(
         this.layerIds[0],
@@ -269,8 +364,16 @@ export default {
   #features{
     font-family: 'gotham-book';
   }
-  /* .primary {
-    background-color: red;
-    border-color: red;
-  } */
+ .v-tooltip__content {
+   background-color: black;
+   color: white;
+   font-family: 'Gotham-book';
+  opacity: 0.9 !important;
+ width: 250px !important;
+ border-radius: 0px !important;
+}
+.v-icon.v-icon{
+  font-size: 16px;
+  opacity: .5;
+}
 </style>

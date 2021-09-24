@@ -10,6 +10,7 @@
 }
 
 .ui__right{
+    height: 100%;
     position:fixed;
     top: 12rem;
     right:4rem;
@@ -20,22 +21,111 @@
 }
 
 .ui__element{
-    // height: 5rem;
+    position: relative;
+    height: 100%;
      width: 100%;
 }
-.ui__vizBox__title{
+.ui__title__no-rule{
     @extend %title-1;
     padding-top:1rem;
  }
  .ui__title{
     @extend %title-1;
-    padding-top:1rem;
+    padding-top:2rem;
     border-top: 1px;
     border-style: solid;
     border-color: #C0D72D;
     margin: 1rem 0rem 0rem 0rem;
+    width: 100%;
+ }
+ .ui__subtitle{
+    font-family: $font-gotham-book;
+    font-size: 12px;
+    margin: 1rem 0rem 0rem 0rem;
+    width: 100%;
  }
  .ui__legend {
-    display:flex;
+    height: 12rem;
+    min-height: 120px;
+    width: 100%;
+    position: absolute;
+    right: 0rem;
+    bottom: 24rem;
  }
-
+ .ui__legend__marker{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+    height:auto;
+ }
+.ui__legend__remainingCap{
+   border-width: 0px 1px 0px 1px;
+   border-style: solid;
+   border-color: black;
+    height: 1rem;
+    background-color: $color-ugc-green;
+    width: 100%;
+    &:nth-child(1) {
+        opacity: 0.1;
+    }
+    &:nth-child(2) {
+        opacity: 0.2;
+    }
+    &:nth-child(3) {
+        opacity: 0.3;
+    }
+    &:nth-child(4) {
+        opacity: 0.4;
+    }
+    &:nth-child(5) {
+        opacity: 0.5;
+    }
+    &:nth-child(6) {
+        opacity: 0.6;
+    }
+    &:nth-child(7) {
+        opacity: 0.7;
+    }
+    &:nth-child(8) {
+        opacity: 0.8;
+    }
+    &:nth-child(9) {
+        opacity: 0.9;
+    }
+    &:nth-child(10) {
+        opacity: 1;
+    }
+}
+.ui__legend__increaseMW{
+    border-width: 0px 1px 0px 1px;
+    border-style: solid;
+    border-color: black;
+     height: 1rem;
+     background-color: $color-ugc-green;
+     width: 100%;
+     &:nth-child(1) {
+         opacity: 0.125;
+     }
+     &:nth-child(2) {
+         opacity: 0.25;
+     }
+     &:nth-child(3) {
+         opacity: 0.375;
+     }
+     &:nth-child(4) {
+         opacity: 0.5;
+     }
+     &:nth-child(5) {
+         opacity: 0.625;
+     }
+     &:nth-child(6) {
+         opacity: 0.75;
+     }
+     &:nth-child(7) {
+         opacity: 0.875;
+     }
+     &:nth-child(8) {
+         opacity: 1;
+     }
+ }
